@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>赞赞</title>
+  <script src="jquery-3.1.1.min.js"></script>
+    <style>
+    .btn{width: 200px;height: 30px;
+    color: floralwhite;
+    background-color:red;
+    position: absolute;
+    bottom: 100px;
+    left: 50%;}
+    img{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        bottom: 100px;
+        margin-left: -10px;
+        left: 50%;
+     }
+    </style>
+    <script>
+        $(function(){
+            //1.找到按钮添加事件
+            $("#btn1").click(function(){
+                //2.生成彩色的心（难点：要随机生成不同颜色的心）
+                var num= Math.floor(Math.random()*3+1);
+                 var index=$(".demo").children("img").length;
+
+                 //3.把生成好的彩色的心追加到页面上
+                 $(".demo").append("<img src=''>");
+                $("img:eq("+index+")").attr("src","img/"+num+".png");
+                  //4.让彩色的心动起来
+                  var rand=parseInt(Math.random()*900);
+                  $("img").animate({
+                      bottom:"800px",
+                      opacity:"0",
+                      left:rand
+                    },3000)
+                  
+
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="demo"></div>   
+    <input id="btn1" type="button" name="" value="赞赞赞" class="btn">
+</body>
+</html>
